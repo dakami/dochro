@@ -1,0 +1,12 @@
+# Build arguments go here. Examples:
+#   is_component_build = true
+#   is_debug = false
+# See "gn args <out_dir> --list" for available build arguments.
+is_component_build = true
+symbol_level = 2
+enable_profiling = true
+enable_full_stack_frames_for_profiling = true
+is_debug = true
+#linux_use_bundled_binutils = true
+use_debug_fission = false
+
