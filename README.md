@@ -17,19 +17,28 @@ Full Web-Based Chrome Development Environment
 #TODO
 
 1) Custom registry (on each cloud?) to support enormous images
+
 2) Eliminate prompting for session / integrate with Autoclave /
    swap XRDP out / fix double window manager issues
+
 3) Host more than just Chromium, and add a way to build a smaller
    Chromium image (build flags, most likely).  Alternate useful environments:
+
    a) Firefox
+
    b) Linux
+
    c) QEMU
+
    d) Eclipse
+
 4) Integrate patch submission -- we can find the bugs, we can fix the bugs,
    one more step is submitting patches (or at least, extracting diffs).
+
 5) More languages!  Liclipse license doesn't really afford just dropping it
    into this environment, but Eclipse can actually be fairly fast (at least
    given cloud scale resources)
+
 6) Parallelize Eclipse CDT indexer, possibly with omp4j.  It *seems* like
    PDOM can be parallelized.  Alternatively, replace the backing store with
    an actual database, possibly a graph database.  GPU backed databases are
