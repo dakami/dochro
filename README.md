@@ -47,4 +47,5 @@ Full Web-Based Chrome Development Environment
 10. Work out what requires root, what requires SYS_PTRACE, and actually tell
     people rather than forcing them to guess.  See if Clear Containers as is
     allows less ... surprising semantics, or could.
+11. Work out *actual* required memory, for builds and operational environments.
 
