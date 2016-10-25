@@ -32,7 +32,13 @@ Full Web-Based Chrome Development Environment
    given cloud scale resources) and we can give people something more than
    Cloud9
 6. Why not give people Cloud9 too? 
-7. Parallelize Eclipse CDT indexer, possibly with omp4j.  It *seems* like
+7. Something like "docker build --build-arg GIT=https://github.com/dakami/autoclave" doclave ."
+   would be pretty cool -- effectively, declare what you want to work on, get
+   a fully configured dev environment.
+8. Oh, there's lots to do to clean things up after build.  Basically "workspace2"
+   needs a bunch of polish to actually launch content_shell correctly, chrome,
+   etc.  Should we build both debug and release?
+9. Parallelize Eclipse CDT indexer, possibly with omp4j.  It *seems* like
    PDOM can be parallelized.  Alternatively, replace the backing store with
    an actual database, possibly a graph database.  GPU backed databases are
    fairly absurd, and it'd be good to demonstrate that.  Neo4J and Alenka
