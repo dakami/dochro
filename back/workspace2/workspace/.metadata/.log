@@ -1,0 +1,9 @@
+!SESSION 2016-10-15 10:36:06.152 -----------------------------------------------
+eclipse.buildId=4.6.1.M20160907-1200
+java.version=1.8.0_102
+java.vendor=Azul Systems, Inc.
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -data /nobody/workspace
+
+!ENTRY org.eclipse.ui.browser 2 0 2016-10-15 10:37:59.208
+!MESSAGE Internal browser is not available: No more handles [Unknown Mozilla path (MOZILLA_FIVE_HOME not set)]

@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+org.eclipse.cdt.ui.text.templates.custom=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+scalability.numberOfLines=50000
+scalability.reconciler=false
+sourceHoverBackgroundColor=255,255,255
+spelling_locale_initialized=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

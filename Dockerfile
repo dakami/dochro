@@ -1,7 +1,7 @@
 FROM hurricane/dockergui:x11rdp
 # set variables
 # User/Group Id gui app will be executed as default are 99 and 100
-ENV USER_ID=99 GROUP_ID=100 APP_NAME="DoChrom" WIDTH=1420 HEIGHT=840 TERM=xterm DEBIAN_FRONTEND=noninteractive HOME=nobody  PATH="/nobody/depot_tools:${PATH}" NINJA_BUILD="" XDG_RUNTIME_DIR="/tmp"
+ENV USER_ID=99 GROUP_ID=100 APP_NAME="DoChro" WIDTH=1420 HEIGHT=840 TERM=xterm DEBIAN_FRONTEND=noninteractive HOME=nobody  PATH="/nobody/depot_tools:${PATH}" NINJA_BUILD="" XDG_RUNTIME_DIR="/tmp"
 
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
@@ -76,6 +76,7 @@ cp -r /nobody/settings /nobody/chromium/src/.settings;
 RUN \
 sed -i 's/gdb_index = false/gdb_index = true/' /nobody/chromium/src/build/config/compiler/BUILD.gn; \
 cd /nobody/chromium/src/out/Debug/; \
+ninja -v; \
 xvfb-run -a /nobody/eclipse/eclipse -nosplash -consoleLog -data /nobody/workspace -application org.eclipse.cdt.managedbuilder.core.headlessbuild -import /nobody/chromium/src -build src;
 ADD /src2 /nobody/
 RUN \
@@ -90,10 +91,6 @@ ADD /workspace2 /nobody/workspace2
 RUN \
 cd /nobody/workspace2/workspace; \
 tar czvf - . | tar xzvf - -C /nobody/workspace/
-# XXXX YOU HAVE TO ADD INDEX DURING COMPILE
-#RUN \
-#cd /nobody/chromium/src/build; \
-#./gdb-add-index /nobody/chromium/src/out/Debug/*.so
 USER root
 RUN \
 cd /nobody/gdb-7.12 && \

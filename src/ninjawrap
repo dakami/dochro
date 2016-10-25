@@ -1,4 +1,4 @@
 #!/bin/bash
 
-ninja -v $* # | sed 's/.*clang/clang/g'
+ninja -v $* | sed 's/.*clang/clang/g'
 
