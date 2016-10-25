@@ -8,9 +8,9 @@ Full Web-Based Chrome Development Environment
     $ docker build -t dochro .
     ### come back in many hours, and I've only tested on +64G of memory
     ### Unsure if requires root, sure requires SYS_PTRACE for gdb to function
-    # docker run --rm --cap-add=SYS_PTRACE -it -p 40080:8080 dochro
+    # docker run --rm --cap-add=SYS_PTRACE -it -p 127.0.0.1:40080:8080 dochro
     
-    # now navigate browser to $SERVER:40080
+    # now navigate browser to 127.0.0.1:40080 (use ssh -L40080:127.0.0.1:40080 $SERVER if remote)
 ![dochro screen shot](https://i.imgur.com/TUY9V0I.png "")
 ![dochro screen shot](https://i.imgur.com/b4PYbay.png "")
 
