@@ -64,7 +64,6 @@ git clone git://github.com/budhash/install-eclipse && \
 ./install-eclipse/install-eclipse -o -p "http://download.eclipse.org/releases/neon,org.eclipse.cdt.feature.group" eclipse; 
 RUN \
 mv /nobody/src/* /nobody && \
-mv /nobody/eclipse.ini /nobody/eclipse/ && \
 cd /nobody/chromium/src; \
 mkdir -p out/Debug && \
 cp /nobody/args.gn out/Debug && \
@@ -76,24 +75,30 @@ cp -r /nobody/settings /nobody/chromium/src/.settings;
 RUN \
 sed -i 's/gdb_index = false/gdb_index = true/' /nobody/chromium/src/build/config/compiler/BUILD.gn; \
 cd /nobody/chromium/src/out/Debug/; \
-ninja -v; \
-xvfb-run -a /nobody/eclipse/eclipse -nosplash -consoleLog -data /nobody/workspace -application org.eclipse.cdt.managedbuilder.core.headlessbuild -import /nobody/chromium/src -build src;
-ADD /src2 /nobody/
+ninja -v; 
+RUN \
+cd / && \
+echo "-startup plugins/org.eclipse.equinox.launcher_1.3.201.v20161025-1711.jar --launcher.library plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.401.v20161122-1740 -showsplash org.eclipse.platform --launcher.defaultAction openFile --launcher.appendVmargs -vmargs -Dosgi.requiredJavaVersion=1.8 -XX:+UseG1GC -XX:+UseStringDeduplication -DXms48000m -DXmx48000m" | tr " " "\n" > /nobody/eclipse/eclipse.ini; \
+cp /nobody/eclipse/eclipse.ini /nobody; \
+cat /nobody/eclipse/eclipse.ini && \
+/nobody/fix_eclipse.sh && \
+cat /nobody/eclipse/eclipse.ini && \
+cd /nobody && \
+xvfb-run -a /nobody/eclipse/eclipse -nosplash -consoleLog -data /nobody/workspace -application org.eclipse.cdt.managedbuilder.core.headlessbuild -import /nobody/chromium/src -build src; \
+ls;
 RUN \
 cd /nobody; \
 tar xf gdb*xz && \
 rm gdb*.tar.xz && \
 cd gdb-7.12; \
-./configure --prefix=/usr && make && \
-ls;
-# && \
+./configure --prefix=/usr && make
+USER root
+RUN \
+cd /nobody/gdb-7.12; \
+make install
 ADD /workspace2 /nobody/workspace2
+USER nobody
 RUN \
 cd /nobody/workspace2/workspace; \
 tar czvf - . | tar xzvf - -C /nobody/workspace/
 USER root
-RUN \
-cd /nobody/gdb-7.12 && \
-make install && \
-cd /nobody/chromium/src/build 
-
