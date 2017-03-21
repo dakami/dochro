@@ -96,9 +96,10 @@ USER root
 RUN \
 cd /nobody/gdb-7.12; \
 make install
-ADD /workspace2 /nobody/workspace2
-USER nobody
-RUN \
-cd /nobody/workspace2/workspace; \
-tar czvf - . | tar xzvf - -C /nobody/workspace/
-USER root
+#ADD /workspace2 /nobody/workspace2
+#USER nobody
+#RUN \
+#cd /nobody/workspace2/workspace; \
+#tar czvf - . | tar xzvf - -C /nobody/workspace/
+#USER root
+
