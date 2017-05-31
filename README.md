@@ -11,8 +11,8 @@ Full Web-Based Chrome Development Environment
     # docker run --rm --cap-add=SYS_PTRACE -it -p 127.0.0.1:40080:8080 dochro
     
     # now navigate browser to 127.0.0.1:40080 (use ssh -L40080:127.0.0.1:40080 $SERVER if remote)
-![dochro screen shot](/dochro1.png)
-![dochro screen shot](/dochro2.png)
+![dochro screen shot](dochro1.png)
+![dochro screen shot](dochro2.png)
 
 #TODO
 
